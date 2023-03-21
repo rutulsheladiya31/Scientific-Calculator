@@ -1,8 +1,8 @@
 let inputData = document.getElementById("inputValue");
 let tempData;
-let power_Xy_Flag = false;
-let changeOperation_Flag = true;
-let DTR = true
+let powerXyFlag = false;
+let changeOperationFlag = true;
+let dtr = true
 let memData;
 let memoryFlag = false;
 let memStore = false;
@@ -15,12 +15,12 @@ function addData(number) {
 
 // 2nd row
 function degreeToradius() {
-    if (DTR) {
+    if (dtr) {
         deg_btn.innerHTML = "RAD"
-        DTR = false
+        dtr = false
     } else {
         deg_btn.innerHTML = "DEG"
-        DTR = true
+        dtr = true
     }
 }
 
@@ -34,7 +34,7 @@ function calculateDegree(value) {
 document.getElementById("trigonometry").addEventListener("change", (event) => {
         let value = event.target.value
 
-        if (DTR == true) {
+        if (dtr == true) {
             if (value == 'sin') {
                 inputData.value = Math.sin(calculateDegree(eval(inputData.value)))
             } else if (value == "cos") {
@@ -44,7 +44,7 @@ document.getElementById("trigonometry").addEventListener("change", (event) => {
             }
             document.getElementById('trigonometry').selectedIndex = 0;
         }
-        if (DTR == false) {
+        if (dtr == false) {
             if (value == 'sin') {
                 inputData.value = Math.sin(inputData.value)
             } else if (value == "cos") {
@@ -70,18 +70,18 @@ document.getElementById("function").addEventListener("change", (event) => {
 
 // 5th Row  
 function changeOperation() {
-    if (changeOperation_Flag) {
+    if (changeOperationFlag) {
         document.getElementById("changeOperation").innerHTML = "3<sup>rd</sup>"
         document.getElementById("square").innerHTML = "X<sup>3</sup>"
         document.getElementById("squareroot").innerHTML = "3√<i>x</i>"
         document.getElementById("logbytwo").innerHTML = "log<sub>10</sub>"
-        changeOperation_Flag = false
+        changeOperationFlag = false
     } else {
         document.getElementById("changeOperation").innerHTML = "2<sup>nd</sup>"
         document.getElementById("square").innerHTML = "X<sup>2</sup>"
         document.getElementById("squareroot").innerHTML = "2√<i>x</i>"
         document.getElementById("logbytwo").innerHTML = "log<sub>2</sub>"
-        changeOperation_Flag = true
+        changeOperationFlag = true
     }
 }
 
@@ -89,7 +89,7 @@ function pi() {
     inputData.value = inputData.value + Math.PI
 }
 
-function e() {
+function exponential() {
     inputData.value = inputData.value + Math.E
 }
 
@@ -106,7 +106,7 @@ function cleardata(flag) {
 
 // 6th row
 function square() {
-    if (changeOperation_Flag) {
+    if (changeOperationFlag) {
         inputData.value = Math.pow(inputData.value, 2)
     } else {
         inputData.value = Math.pow(inputData.value, 3)
@@ -130,7 +130,7 @@ function absolute() {
 }
 // 7th row
 function square_root() {
-    if (changeOperation_Flag) {
+    if (changeOperationFlag) {
         inputData.value = Math.sqrt(inputData.value)
     } else {
         inputData.value = Math.cbrt(inputData.value)
@@ -155,7 +155,7 @@ function power_xy() {
         tempData = inputData.value
         inputData.value = ""
         inputData.placeholder = "Enter Second Number"
-        power_Xy_Flag = true;
+        powerXyFlag = true;
     }
 }
 
@@ -165,7 +165,7 @@ function ten() {
 }
 //10th row
 function logby_two() {
-    if (changeOperation_Flag) {
+    if (changeOperationFlag) {
         inputData.value = Math.log2(inputData.value)
     } else {
         inputData.value = Math.log10(inputData.value)
@@ -179,9 +179,9 @@ function ln() {
 
 function equalto() {
     inputData.value = eval(inputData.value)
-    if (power_Xy_Flag == true) {
+    if (powerXyFlag == true) {
         inputData.value = Math.pow(tempData, eval(inputData.value))
-        power_Xy_Flag = false
+        powerXyFlag = false
     }
 
 
@@ -203,7 +203,6 @@ function plus_minus() {
 document.querySelectorAll('.memoryfunction').forEach((element) => {
     element.addEventListener('click', () => {
         memoryFunction(element)
-            // console.log(true)
         console.log(`stored ${memData} data`)
     })
 })
@@ -224,8 +223,10 @@ function memoryFunction(ele) {
             memoryFlag = true;
         }
 
-        if (memoryFlag) memData += eval(inputData.value) + "+";
-        inputData.value = "";
+        if (memoryFlag){
+            memData += eval(inputData.value) + "+";
+            inputData.value = "";
+        } 
     } else if (eleId == "mm") {
         if (memStore) {
             memData += '-';
@@ -238,8 +239,10 @@ function memoryFunction(ele) {
             document.getElementById("ms").style.color = "Black";
             memoryFlag = true;
         }
-        if (memoryFlag) memData += eval(inputData.value) + "-";
-        inputData.value = "";
+        if (memoryFlag){
+            memData += eval(inputData.value) + "-";
+            inputData.value = "";
+        } 
     } else if (eleId == "mr" && memoryFlag) {
         (inputData.value == "") ? memData = memData.substring(0, memData.length - 1): memData += inputData.value;
         inputData.value = eval(memData);
