@@ -203,14 +203,12 @@ function plus_minus() {
 document.querySelectorAll('.memoryfunction').forEach((element) => {
     element.addEventListener('click', () => {
         memoryFunction(element)
-        console.log(`stored ${memData} data`)
-    })
+        })
 })
 
 function memoryFunction(ele) {
     let eleId = ele.attributes.id.value;
     if (eleId == "mp") {
-        console.log(memData)
         if (memStore) {
             memData += '+';
             memStore = false;
@@ -248,7 +246,6 @@ function memoryFunction(ele) {
         inputData.value = eval(memData);
     } else if (eleId == "mc" && memoryFlag) {
         memData = "";
-        console.log("memory is cleared");
         document.getElementById("mc").style.color = "rgb(163, 163, 163)";
         document.getElementById("mr").style.color = "rgb(163, 163, 163)";
         document.getElementById("ms").style.color = "rgb(163, 163, 163)";
@@ -256,7 +253,5 @@ function memoryFunction(ele) {
     } else if (eleId == "ms" && memoryFlag) {
         memStore = true;
         memData = eval(memData);
-        console.log(memData)
-        console.log(`Last calculation ${memData} stored successfully`);
     }
 }
