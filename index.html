@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <h3 class="text-center my-4">Scientific Calculator</h3>
+
+    <section class="main-section">
+        <div class="calculator">
+            <table class="table">
+                <tr>
+                    <td colspan="5">
+                        <input type="text" placeholder="0" id="inputValue">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="common-bold" type="button" id="deg_btn" onclick="degreeToradius()">DEG</button>
+                        <button class="common-bold" type="button" id="fe">F-E</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="mc" class="memoryfunction">MC</button>
+                        <button id="mr" class="memoryfunction">MR</button>
+                        <button class="common-bold memoryfunction" id="mp">M+</button>
+                        <button class="common-bold memoryfunction" id="mm">M-</button>
+                        <button class="memoryfunction" id="ms">MS</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <select name="trigonometry" id="trigonometry">
+                            <option value="trigonometry" selected>∠ Trigonometry</option>
+                            <option value="sin">Sin</option>
+                            <option value="cos">Cos</option>
+                            <option value="tan">Tan</option>
+                        </select>
+
+                        <select name="Function" id="function">
+                            <option value="function" selected>ƒ Function</option>
+                            <option value="random">random</option>
+                            <option value="floor">floor</option>
+                            <option value="ceil">ceilling</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="changeOperation" onclick="changeOperation()">2<sup>nd</sup></button>
+                        <button onclick="pi()">π</button>
+                        <button onclick="exponential()">e</button>
+                        <button onclick="cleardata(true)"><b>C</b></button>
+                        <button onclick="cleardata(false)">⌫</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="square" onclick="square()">X<sup>2</sup></button>
+                        <button onclick="fractional()">1/<i>x</i></button>
+                        <button onclick="absolute()"><i>|x|</i></button>
+                        <button onclick="expo()">exp</button>
+                        <button onclick="addData('%')">mod</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="squareroot" onclick="square_root()">2√<i>x</i></button>
+                        <button onclick="addData('(')">(</button>
+                        <button onclick="addData(')')">)</button>
+                        <button onclick="factorial()"><i>n</i>!</button>
+                        <button onclick="addData('/')">÷</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="power_xy()"><i>X<sup>y</sup></button>
+                        <button class="btn-white" onclick="addData(7)"> <b>7</b></button>
+                        <button class="btn-white" onclick="addData(8)"><b>8</b></button>
+                        <button class="btn-white" onclick="addData(9)"><b>9</b></button>
+                        <button onclick="addData('*')">*</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="ten()"><i>10<sup>x</sup></button>
+                        <button class="btn-white" onclick="addData(4)"><b>4</b></button>
+                        <button class="btn-white" onclick="addData(5)"><b>5</b></button>
+                        <button class="btn-white" onclick="addData(6)"><b>6</b></button>
+                        <button onclick="addData('-')">-</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button id="logbytwo" onclick="logby_two()">log<sub>2</sub></button>
+                        <button class="btn-white" type="button" onclick="addData(1)"><b>1</b></button>
+                        <button class="btn-white" onclick="addData(2)"><b>2</b></button>
+                        <button class="btn-white" onclick="addData(3)"><b>3</b></button>
+                        <button onclick="addData('+')">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="ln()">ln</button>
+                        <button class="btn-white" onclick="plus_minus()">+/-</button>
+                        <button class="btn-white" onclick="addData(0)">0</button>
+                        <button class="btn-white" onclick="addData('.')">.</button>
+                        <button onclick="equalto()" style="background-color: rgb(132, 182, 249);">=</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Js    -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
